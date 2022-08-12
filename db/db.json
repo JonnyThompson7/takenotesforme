@@ -1,3 +1,14 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "title": "Example Note",
+      "text": "This note is an Example\n",
+      "id": "0"
+    },
+    {
+      "title": "Delete this note!",
+      "text": "This note is an example, delete it to see the function work!",
+      "id": "1"
+    }
+  ]
 }
