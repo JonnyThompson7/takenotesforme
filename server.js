@@ -1,3 +1,4 @@
+// Dependencies
 const express = require('express');
 const { notes } = require('./db/db.json');
 const fs = require('fs');
