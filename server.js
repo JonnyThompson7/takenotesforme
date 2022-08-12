@@ -60,12 +60,13 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-// Delete Notes Route
+// Delete Notes Route - Extra Credit
 app.delete('/api/notes/:id', (req, res) => {
   const result = deleteNoteById(req.params.id, notes);
   res.send(result);
 });
 
+// Console Log Port
 app.listen(PORT, () => {
   console.log(`API server now on PORT ${PORT}!`);
 });
