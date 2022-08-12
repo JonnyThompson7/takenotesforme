@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
+// Function to create routes
 function createNewNote(body, notesArray) {
   const newNote = body;
   notesArray.push(newNote);
@@ -20,6 +21,7 @@ function createNewNote(body, notesArray) {
   return newNote;
 }
 
+// Function to Delete Notes
 function deleteNoteById(id, notes) {
   const thisId = id;
   console.log(thisId);
@@ -34,6 +36,7 @@ function deleteNoteById(id, notes) {
   return notes;
 }
 
+// Routes for Get/Push/Delete/Listen
 app.get('/api/notes', (req, res) => {
   let results = notes;
   res.json(results);
@@ -57,6 +60,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
+// Delete Notes Route
 app.delete('/api/notes/:id', (req, res) => {
   const result = deleteNoteById(req.params.id, notes);
   res.send(result);
