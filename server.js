@@ -1,5 +1,5 @@
 const express = require('express');
-const { notes } = require('./Develop/db/db.json');
+const { notes } = require('./db/db.json');
 const fs = require('fs');
 const path = require('path');
 
@@ -14,7 +14,7 @@ function createNewNote(body, notesArray) {
   const newNote = body;
   notesArray.push(newNote);
   fs.writeFileSync(
-    path.join(__dirname, './Develop/db/db.json'),
+    path.join(__dirname, './db/db.json'),
     JSON.stringify({ notes: notesArray }, null, 2)
   );
   return newNote;
@@ -36,7 +36,7 @@ app.get('/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
   req.body.id = notes.length.toString();
   const newNote = createNewNote(req.body, notes);
-  res.json(newNotes);
+  res.json(newNote);
 })
 
 app.get('*', (req, res) => {
